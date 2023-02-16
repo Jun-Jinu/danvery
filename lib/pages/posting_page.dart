@@ -1,5 +1,6 @@
 import 'package:danvery/settings/palette.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class PostingPage extends StatelessWidget {
   const PostingPage({super.key});
@@ -63,6 +64,32 @@ class PostingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void dialog() {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return CupertinoAlertDialog(
+              title: Text("작성한 댓글이 지워집니다.\n삭제하시겠습니까?"),
+              actions: [
+                CupertinoDialogAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text("취소")),
+                CupertinoDialogAction(
+                    onPressed: () {
+                      //삭제기능 추가하기
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "삭제하기",
+                      style: TextStyle(color: Palette.blue),
+                    )),
+              ],
+            );
+          });
+    }
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
@@ -81,11 +108,12 @@ class PostingView extends StatelessWidget {
               subtitle: Text(poster +
                   " " +
                   (publishDate != null ? publishDate.toString() : "")),
-              trailing: Icon(Icons.more_vert),
+              trailing: GestureDetector(
+                  onTap: () => dialog(), child: Icon(Icons.more_vert)),
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            padding: const EdgeInsets.only(top: 10.0, bottom: 40.0),
             child: Text(content),
           ),
           Row(
@@ -123,7 +151,8 @@ class PostingView extends StatelessWidget {
           ),
           Divider(thickness: 5, color: Palette.brightGrey),
           Padding(
-            padding: EdgeInsets.only(top: 10.0, left: 40.0),
+            //대댓글 컴포넌트
+            padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 40.0),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
@@ -131,6 +160,7 @@ class PostingView extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  // 대댓글 Listtile 2개 들어갈 자리
                   ListTile(
                     title: Text(
                       title,
@@ -150,13 +180,12 @@ class PostingView extends StatelessWidget {
                     ),
                   ),
                   ListTile(
-                    title: Text(
+                    subtitle: Text(
                       title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15.0,
                       ),
                     ),
                   ),
