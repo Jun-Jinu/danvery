@@ -64,6 +64,8 @@ class PostingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var selectedItem = '';
+
     void dialog() {
       showDialog(
           context: context,
@@ -108,8 +110,34 @@ class PostingView extends StatelessWidget {
               subtitle: Text(poster +
                   " " +
                   (publishDate != null ? publishDate.toString() : "")),
-              trailing: GestureDetector(
-                  onTap: () => dialog(), child: Icon(Icons.more_vert)),
+              trailing: PopupMenuButton(
+                icon: Icon(Icons.more_vert),
+                itemBuilder: (context) {
+                  return const [
+                    PopupMenuItem(
+                      child: Text("수정"),
+                      value: 'update',
+                    ),
+                    PopupMenuItem(
+                      child: Text("삭제"),
+                      value: 'delete',
+                    ),
+                  ];
+                },
+                onSelected: (value) {
+                  // your logic
+
+                  switch (value) {
+                    case 'update':
+                      dialog();
+                      break;
+
+                    case 'delete':
+                      dialog();
+                      break;
+                  }
+                },
+              ),
             ),
           ),
           Container(
