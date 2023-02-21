@@ -3,6 +3,7 @@ import 'package:danvery/model/login_model.dart';
 import 'package:danvery/model/petition_model.dart';
 import 'package:danvery/model/post_model.dart';
 import 'package:danvery/model/user_model.dart';
+import 'package:danvery/pages/newpost_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:danvery/pages/posting_page.dart';
 import 'package:http/http.dart' as http;
 import '../dto/board_list_dto.dart';
 import '../main.dart';
+
 import '../settings/palette.dart';
 
 class BoardPage extends StatefulWidget {
@@ -44,8 +46,23 @@ class _BoardPage extends State<BoardPage> {
               style: TextStyle(fontSize: 20, color: Palette.black),
             ),
             actions: [
-              IconButton(icon: Icon(Icons.search), onPressed: null),
-              IconButton(icon: Icon(Icons.mode_edit_outline), onPressed: null),
+              IconButton(
+                  icon: Icon(
+                    Icons.search,
+                    color: Palette.grey,
+                  ),
+                  onPressed: null),
+              IconButton(
+                  icon: Icon(
+                    Icons.mode_edit_outline,
+                    color: Palette.grey,
+                  ),
+                  onPressed: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NewpostPage()))
+                      }),
             ],
             centerTitle: true,
             backgroundColor: Colors.transparent,
