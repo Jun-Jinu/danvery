@@ -30,24 +30,27 @@ class _BoardPage extends State<BoardPage> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100.0),
-        child: AppBar(
-          leading: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Palette.black,
-              ),
-              onPressed: () => {Navigator.pop(context)}),
-          title: Text(
-            '자유게시판',
-            style: TextStyle(fontSize: 20, color: Palette.black),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: AppBar(
+            leading: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Palette.black,
+                ),
+                onPressed: () => {Navigator.pop(context)}),
+            title: Text(
+              '자유게시판',
+              style: TextStyle(fontSize: 20, color: Palette.black),
+            ),
+            actions: [
+              IconButton(icon: Icon(Icons.search), onPressed: null),
+              IconButton(icon: Icon(Icons.mode_edit_outline), onPressed: null),
+            ],
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
           ),
-          actions: [
-            IconButton(icon: Icon(Icons.search), onPressed: null),
-            IconButton(icon: Icon(Icons.mode_edit_outline), onPressed: null),
-          ],
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
         ),
       ),
       body: ListView(

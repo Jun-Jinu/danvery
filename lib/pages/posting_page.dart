@@ -1,4 +1,5 @@
 import 'package:danvery/settings/palette.dart';
+import 'package:danvery/pages/newpost_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -13,21 +14,24 @@ class PostingPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(50.0),
-          child: AppBar(
-            leading: IconButton(
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Palette.black,
-                ),
-                onPressed: () => {Navigator.pop(context)}),
-            title: Text(
-              '자유게시판',
-              style: TextStyle(fontSize: 20, color: Palette.black),
+          preferredSize: Size.fromHeight(100.0),
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: AppBar(
+              leading: IconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Palette.black,
+                  ),
+                  onPressed: () => {Navigator.pop(context)}),
+              title: Text(
+                '자유게시판',
+                style: TextStyle(fontSize: 20, color: Palette.black),
+              ),
+              centerTitle: true,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
             ),
-            centerTitle: true,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
           ),
         ),
         body: const PostingView(
@@ -129,7 +133,10 @@ class PostingView extends StatelessWidget {
 
                   switch (value) {
                     case 'update':
-                      dialog();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NewpostPage()));
                       break;
 
                     case 'delete':
