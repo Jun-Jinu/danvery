@@ -2,7 +2,7 @@ import 'package:danvery/settings/palette.dart';
 import 'package:danvery/widgets/login_form_field.dart';
 import 'package:flutter/cupertino.dart';
 
-class LoginPage extends StatefulWidget{
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
@@ -10,16 +10,12 @@ class LoginPage extends StatefulWidget{
     // TODO: implement createState
     return _LoginPage();
   }
-
 }
 
-class _LoginPage extends State<LoginPage>{
+class _LoginPage extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-
-    );
+    return Container();
   }
-
 }

@@ -10,6 +10,8 @@ import 'package:danvery/pages/membership_page.dart';
 import 'package:danvery/pages/timetable_page.dart';
 import 'package:danvery/pages/board_page.dart';
 import 'package:danvery/pages/posting_page.dart';
+import 'package:danvery/pages/membership_page.dart';
+import 'package:danvery/pages/petition_board_page.dart';
 import 'package:danvery/settings/palette.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -99,7 +101,7 @@ class _MyApp extends State<MyApp> {
                         TimetablePage(userModel: userModel),
                         MembershipPage(),
                         BoardPage(),
-                        PostingPage()
+                        PetitionBoardPage()
                       ],
                     ),
                   ),

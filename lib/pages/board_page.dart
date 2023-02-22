@@ -4,6 +4,7 @@ import 'package:danvery/model/petition_model.dart';
 import 'package:danvery/model/post_model.dart';
 import 'package:danvery/model/user_model.dart';
 import 'package:danvery/pages/newpost_page.dart';
+import 'package:danvery/pages/search_board_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,12 @@ class _BoardPage extends State<BoardPage> {
                     Icons.search,
                     color: Palette.grey,
                   ),
-                  onPressed: null),
+                  onPressed: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SearchBoardPage()))
+                      }),
               IconButton(
                   icon: Icon(
                     Icons.mode_edit_outline,

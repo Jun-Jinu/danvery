@@ -1,8 +1,7 @@
-import 'package:danvery/settings/palette.dart';
-import 'package:danvery/settings/font_size.dart';
-import 'package:danvery/settings/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:danvery/settings/font_size.dart';
+import 'package:danvery/settings/palette.dart';
 
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
@@ -42,10 +41,12 @@ class _NewpostPageState extends State<NewpostPage> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text("취소")),
+                    child: Text(
+                      "취소",
+                      style: TextStyle(color: Palette.black),
+                    )),
                 CupertinoDialogAction(
                     onPressed: () {
-                      //삭제기능 추가하기
                       Navigator.pop(context);
                       Navigator.pop(context);
                     },
@@ -71,7 +72,7 @@ class _NewpostPageState extends State<NewpostPage> {
                 ),
                 onPressed: () => backButtonDialog()),
             title: Text(
-              '자유게시판',
+              '글 작성하기',
               style: TextStyle(fontSize: 20, color: Palette.black),
             ),
             centerTitle: true,
@@ -91,7 +92,7 @@ class _NewpostPageState extends State<NewpostPage> {
             )),
             Divider(thickness: 1, color: Palette.brightGrey),
             TextField(
-                maxLines: 10,
+                maxLines: 20,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(borderSide: BorderSide.none),
                   hintText: '내용',

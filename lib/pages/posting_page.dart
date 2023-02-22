@@ -6,8 +6,6 @@ import 'package:flutter/cupertino.dart';
 class PostingPage extends StatelessWidget {
   const PostingPage({super.key});
 
-  static const String _title = 'Flutter Code Sample';
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
