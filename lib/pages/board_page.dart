@@ -119,13 +119,14 @@ class NoticeCard extends StatelessWidget {
   final int? commentCnt;
   final int? likeCnt;
 
-  const NoticeCard(
-      {super.key,
-      required this.category,
-      required this.title,
-      this.imageCnt,
-      this.commentCnt,
-      this.likeCnt});
+  const NoticeCard({
+    super.key,
+    required this.category,
+    required this.title,
+    this.imageCnt,
+    this.commentCnt,
+    this.likeCnt,
+  });
 
   @override
   Widget build(BuildContext context) {
